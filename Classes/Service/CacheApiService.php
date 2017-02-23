@@ -159,7 +159,7 @@ class CacheApiService {
 		$toBeFlushed = array_diff($cacheKeys, $ignoredCaches);
 
 		/** @var \TYPO3\CMS\Core\Cache\CacheManager $cacheManager */
-		$cacheManager = $GLOBALS['typo3CacheManager'];
+		$cacheManager = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager');
 		foreach ($cacheKeys as $cacheKey) {
 			if ($cacheManager->hasCache($cacheKey)) {
 				$out[] = $cacheKey;
